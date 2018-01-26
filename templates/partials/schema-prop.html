@@ -4,6 +4,17 @@
   <td class="table__body__cell">{{prop.type}}{{#if prop.items.type}}({{prop.items.type}}){{/if}}</td>
   <td class="table__body__cell">{{prop.format}}</td>
   <td class="table__body__cell">{{prop.default}}</td>
+  <td class="table__body__cell table--nested__body__cell">
+                  {{#if prop.enum}}
+                  <ul class="info__server__enum-list">
+                    {{#each prop.enum as |value|}}
+                    <li>{{value}}</li>
+                    {{/each}}
+                  </ul>
+                  {{else}}
+                    Any
+                  {{/if}}
+                </td>
   <td class="table__body__cell">{{prop.description}}</td>
 </tr>
 {{#if prop.properties}}
