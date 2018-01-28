@@ -3,3 +3,17 @@
 {{#each asyncapi.components.messages}}
   {{>message message=. messageName=@key}}
 {{/each}}
+
+
+{{#each asyncapi.topics as | topic key|}}   
+topic : {{topic}}
+key : {{key}} 
+
+  {{~#if topic.publish ~}}
+    {{>message message=this messageName=key~}}    
+  {{~/if~}}
+
+  {{~#if topic.subscribe~}}
+    {{>message message=this messageName=key~}}
+  {{~/if~}}
+{{/each}}
