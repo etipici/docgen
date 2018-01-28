@@ -20,7 +20,11 @@
 </table>
 {{/if}}
 
+{{#if operation.x-message}}
+<a href="#message-{{operation.x-message}}"><h3>Payload</h3></a>
+{{else}}
 <h3>Payload</h3>
+{{/if}}
 
 <table class="table">
   <thead class="table__head">
@@ -36,12 +40,6 @@
     {{/each}}
   </tbody>
 </table>
-
-{{#if operation.example}}
-<h3>Example</h3>
-
-<pre class="hljs"><code class="json">{{~operation.formattedExample~}}</code></pre>
-{{/if}}
 
 <h3>Tags</h3>
 
