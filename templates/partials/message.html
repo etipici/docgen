@@ -12,6 +12,7 @@
   <h4>Description</h4>
   {{{message.descriptionAsHTML}}}
 
+
   <h4>Payload</h4>
 
   <table class="table">
@@ -22,6 +23,7 @@
         <th class="table__head__cell">Description</th>
       </tr>
     </thead>
+{{#if message.payload}}
     <tbody class="table__body">
       {{#each message.payload.properties}}
         {{> property prop=. propName=@key prefix=''}}
@@ -30,10 +32,15 @@
       {{/each}}
     </tbody>
   </table>
+{{else}}
+</table>
+<i>No payload defined for this message...</i>
+{{/if}}
 
 {{#if message.example}}
 <h4>Example</h4>
 
 <pre class="hljs"><code class="json">{{~message.example~}}</code></pre>
 {{/if}}
+
 </div>
